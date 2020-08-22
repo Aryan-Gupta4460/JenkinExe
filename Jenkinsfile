@@ -11,14 +11,14 @@ pipeline {
 
     stage('Checkout Source') {
       steps {
-        git 'https://github.com/justmeandopensource/playjenkins.git'
+        git 'https://github.com/Aryan-Gupta4460/JenkinExe.git'
       }
     }
 
     stage('Build image') {
       steps{
         script {
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+          dockerImage = docker.build("aryangupta4460/dockerwebapp")
         }
       }
     }
@@ -26,7 +26,7 @@ pipeline {
     stage('Push Image') {
       steps{
         script {
-          docker.withRegistry( "" ) {
+          docker.withRegistry( "aryangupta4460" ) {
             dockerImage.push()
           }
         }
