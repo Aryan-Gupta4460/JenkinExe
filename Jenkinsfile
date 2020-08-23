@@ -33,10 +33,10 @@ pipeline {
       }
     }
 
-    stage('Deploy App') {
+    stage('Deploy App to local k8s') {
       steps {
         script {
-          kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "mykubeconfig")
+          sh 'kubectl apply -f myweb.yaml'
         }
       }
     }
