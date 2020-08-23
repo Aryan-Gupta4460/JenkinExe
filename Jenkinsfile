@@ -1,6 +1,6 @@
 pipeline {
    environment {
-    registry = "Aryan-Gupta4460/JenkinExe"
+    registry = "aryangupta4460/webapp"
     registryCredential = 'dockerHub'
     dockerImage = ''
   }
