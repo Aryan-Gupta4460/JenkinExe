@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   labels:
     app: myweb
-  name: myweb
+  name: webapp
 spec:
   replicas: 1
   selector:
@@ -16,23 +16,23 @@ spec:
         app: myweb
     spec:
       containers:
-      - image: 192.168.1.81:5000/justme/myweb:1
+      - image: aryangupta4460/webapp
         imagePullPolicy: Always
-        name: myweb
+        name: webapp
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: myweb
-  name: myweb
+    app: webapp
+  name: webapp
 spec:
   ports:
   - nodePort: 32223
     port: 80
     protocol: TCP
-    targetPort: 80
+    targetPort: 8080
   selector:
     app: myweb
   type: NodePort
