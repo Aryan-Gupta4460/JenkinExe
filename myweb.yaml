@@ -3,8 +3,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: webapp
-  name: webapp
+    app: myweb
+  name: myweb
 spec:
   replicas: 1
   selector:
@@ -13,26 +13,26 @@ spec:
   template:
     metadata:
       labels:
-        app: webapp
+        app: myweb
     spec:
       containers:
-      - image: aryangupta4460/webapp
+      - image: aryangupta4460/myweb
         imagePullPolicy: Always
-        name: webapp
+        name: myweb
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: webapp
-  name: webapp
+    app: myweb
+  name: myweb
 spec:
   ports:
   - nodePort: 32223
     port: 80
     protocol: TCP
-    targetPort: 8443
+    targetPort: 8080
   selector:
-    app: webapp
+    app: myweb
   type: NodePort
