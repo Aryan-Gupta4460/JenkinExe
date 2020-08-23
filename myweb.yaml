@@ -32,7 +32,7 @@ spec:
   - nodePort: 32223
     port: 80
     protocol: TCP
-    targetPort: 8080
+    targetPort: 8443
   selector:
     app: webapp
   type: NodePort
