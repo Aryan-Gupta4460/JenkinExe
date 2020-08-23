@@ -21,7 +21,8 @@ pipeline {
     stage('Push Image') {
       steps{
         script {
-          docker.withRegistry( "aryangupta4460" ) {
+         withCredentials([string(credentialsId: 'ARYUmedhu1@', variable: 'docker-hub')]) {
+			    sh "docker login -u aryangupta4460 -p ${ARYUmedhu1@}"  {
             dockerImage.push()
           }
         }
