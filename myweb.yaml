@@ -15,9 +15,10 @@ spec:
       labels:
         app: myweb
     spec:
+     type: LoadBalancer
       containers:
       - image: aryangupta4460/myweb
-        imagePullPolicy: Always
+        imagePullPolicy: Never
         name: myweb
 
 ---
