@@ -1,6 +1,6 @@
 pipeline {
    environment {
-    registry = "aryangupta4460/webapp"
+    registry = "aryangupta4460/myweb"
     registryCredential = 'dockerHub'
     dockerImage = ''
   }
