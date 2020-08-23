@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: myweb
+    app: webapp
   name: webapp
 spec:
   replicas: 1
@@ -13,7 +13,7 @@ spec:
   template:
     metadata:
       labels:
-        app: myweb
+        app: webapp
     spec:
       containers:
       - image: aryangupta4460/webapp
@@ -34,5 +34,5 @@ spec:
     protocol: TCP
     targetPort: 8080
   selector:
-    app: myweb
+    app: webapp
   type: NodePort
