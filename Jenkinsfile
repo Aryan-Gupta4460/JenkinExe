@@ -1,4 +1,9 @@
 pipeline {
+   environment {
+    registry = "Aryan-Gupta4460/JenkinExe"
+    registryCredential = 'dockerHub'
+    dockerImage = ''
+  }
 
   agent any
 
@@ -13,7 +18,7 @@ pipeline {
     stage('Build image') {
       steps{
         script {
-          sh "docker build - < Dockerfile"
+         dockerImage = docker.build registry + ":$BUILD_NUMBER"          
         }
       }
     }
@@ -21,7 +26,7 @@ pipeline {
     stage('Push Image') {
       steps{
         script {
-          docker.withRegistry( "aryangupta4460" )  {
+           docker.withRegistry( '', registryCredential ) {
             dockerImage.push()
           }
         }
